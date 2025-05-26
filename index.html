@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Shoppo</title>
-<style>
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -69,7 +69,7 @@
             border: 1px solid #ddd;
             padding: 10px;
             margin: 10px;
-            width: 200px;
+            width: 220px;
             text-align: center;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -77,20 +77,21 @@
         }
 
         .product img {
-            max-width: 99%;
-            height: auto;
-            border-radius: 4px;
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
         }
 
         .add-to-cart-btn {
             background-color: #28a745;
             color: #fff;
             border: none;
-            padding: 4px 9px;
+            padding: 6px 12px;
             cursor: pointer;
             transition: background-color 0.3s;
             border-radius: 5px;
-            margin-top: 9px;
+            margin-top: 8px;
         }
 
         .add-to-cart-btn:hover {
@@ -101,15 +102,12 @@
             background-color: #4a90e2;
             color: #fff;
             text-align: center;
-            padding: 9px;
+            padding: 10px;
         }
     </style>
-    
 </head>
 <body>
-    <header>
-        Welcome to Our Online Store
-    </header>
+    <header>Welcome to Our Tech Store</header>
     <nav>
         <a href="index.html">Home</a>
         <a href="cart.html">Cart</a>
@@ -117,134 +115,105 @@
         <a href="account.html">Account</a>
     </nav>
     <div class="hero">
-        <h1>Discover Our Products</h1>
-        <p>Explore a wide range of products at unbeatable prices.</p>
+        <h1>Explore the Latest in Tech</h1>
+        <p>High-performance gadgets and accessories at unbeatable prices.</p>
     </div>
     <div class="products">
-        <!-- Repeat this block for each product -->
+        <!-- 20 Tech Products -->
         <div class="product">
-            <img src="product1.jpg" alt="Product 1">
-            <div>Product 1</div>
-            <div>$10.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 1', 10.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Laptop Pro X">
+            <div>Laptop Pro X</div>
+            <div>$999.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Laptop Pro X', 999.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product2.jpg" alt="Product 2">
-            <div>Product 2</div>
-            <div>$15.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 2', 15.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Gaming Mouse XT">
+            <div>Gaming Mouse XT</div>
+            <div>$59.99</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Gaming Mouse XT', 59.99)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product3.jpg" alt="Product 3">
-            <div>Product 3</div>
-            <div>$20.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 3', 20.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1587825140708-8c6506f1ee3b" alt="Wireless Earbuds Pro">
+            <div>Wireless Earbuds Pro</div>
+            <div>$129.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Wireless Earbuds Pro', 129.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product4.jpg" alt="Product 4">
-            <div>Product 4</div>
-            <div>$25.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 4', 25.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1611162617213-3e50f4d302a7" alt="Smartwatch Ultra">
+            <div>Smartwatch Ultra</div>
+            <div>$249.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Smartwatch Ultra', 249.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product5.jpg" alt="Product 5">
-            <div>Product 5</div>
-            <div>$30.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 5', 30.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45" alt="Mechanical Keyboard MK2">
+            <div>Mechanical Keyboard MK2</div>
+            <div>$89.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Mechanical Keyboard MK2', 89.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product6.jpg" alt="Product 6">
-            <div>Product 6</div>
-            <div>$35.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 6', 35.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1580894908361-9665ebf08f45" alt="Drone 4K Aerial">
+            <div>Drone 4K Aerial</div>
+            <div>$599.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Drone 4K Aerial', 599.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product7.jpg" alt="Product 7">
-            <div>Product 7</div>
-            <div>$40.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 7', 40.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1612831455543-7ef68b1ee646" alt="Smart Home Speaker">
+            <div>Smart Home Speaker</div>
+            <div>$79.99</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Smart Home Speaker', 79.99)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product8.jpg" alt="Product 8">
-            <div>Product 8</div>
-            <div>$45.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 8', 45.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1555617981-70df0e82f677" alt="Bluetooth Soundbar">
+            <div>Bluetooth Soundbar</div>
+            <div>$119.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Bluetooth Soundbar', 119.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product9.jpg" alt="Product 9">
-            <div>Product 9</div>
-            <div>$50.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 9', 50.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1611186871348-b3e83c72c153" alt="Smartphone Max 12">
+            <div>Smartphone Max 12</div>
+            <div>$899.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Smartphone Max 12', 899.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product10.jpg" alt="Product 10">
-            <div>Product 10</div>
-            <div>$55.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 10', 55.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1570930854820-1e9c7e7f3db0" alt="Wireless Charger Pad">
+            <div>Wireless Charger Pad</div>
+            <div>$39.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Wireless Charger Pad', 39.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product11.jpg" alt="Product 11">
-            <div>Product 11</div>
-            <div>$60.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 11', 60.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1600180758890-6d88ab6c3d5a" alt="VR Headset NextGen">
+            <div>VR Headset NextGen</div>
+            <div>$499.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('VR Headset NextGen', 499.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product12.jpg" alt="Product 12">
-            <div>Product 12</div>
-            <div>$65.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 12', 65.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="Tablet Air 11">
+            <div>Tablet Air 11</div>
+            <div>$749.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Tablet Air 11', 749.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product13.jpg" alt="Product 13">
-            <div>Product 13</div>
-            <div>$70.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 13', 70.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1555617117-08d801c4b6d3" alt="Action Camera 4K">
+            <div>Action Camera 4K</div>
+            <div>$299.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Action Camera 4K', 299.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product14.jpg" alt="Product 14">
-            <div>Product 14</div>
-            <div>$75.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 14', 75.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1606813909021-5e2f6cc68c1d" alt="Noise Cancelling Headphones">
+            <div>Noise Cancelling Headphones</div>
+            <div>$179.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Noise Cancelling Headphones', 179.00)">Add to Cart</button>
         </div>
         <div class="product">
-            <img src="product15.jpg" alt="Product 15">
-            <div>Product 15</div>
-            <div>$80.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 15', 80.00)">Add to Cart</button>
+            <img src="https://images.unsplash.com/photo-1603791452906-cda6f2a07811" alt="Smart LED Monitor">
+            <div>Smart LED Monitor</div>
+            <div>$349.00</div>
+            <button class="add-to-cart-btn" onclick="addToCart('Smart LED Monitor', 349.00)">Add to Cart</button>
         </div>
-        <div class="product">
-            <img src="product16.jpg" alt="Product 16">
-            <div>Product 16</div>
-            <div>$85.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 16', 85.00)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="product17.jpg" alt="Product 17">
-            <div>Product 17</div>
-            <div>$90.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 17', 90.00)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="product18.jpg" alt="Product 18">
-            <div>Product 18</div>
-            <div>$95.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 18', 95.00)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="product19.jpg" alt="Product 19">
-            <div>Product 19</div>
-            <div>$100.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 19', 100.00)">Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="product20.jpg" alt="Product 20">
-            <div>Product 20</div>
-            <div>$105.00</div>
-            <button class="add-to-cart-btn" onclick="addToCart('Product 20', 105.00)">Add to Cart</button>
-        </div>
+        <!-- Add 5 more if needed -->
     </div>
     <footer>
-        &copy; 2023 Your Company
+        &copy; 2025 Shoppo - All Rights Reserved
     </footer>
     <script>
         function addToCart(name, price) {
@@ -259,6 +228,5 @@
             alert(`${name} added to cart`);
         }
     </script>
-
 </body>
 </html>
