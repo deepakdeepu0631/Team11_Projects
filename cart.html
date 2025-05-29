@@ -108,5 +108,62 @@ header, footer {
     <footer>
         &copy; 2023 Your Company
     </footer>
+
+	 <script>
+        function renderCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = ''; // Clear existing content
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>
+                        <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                        ${item.quantity}
+                        <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
+                    <div>$${(item.price * item.quantity).toFixed(2)}</div>
+                    <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartContainer.appendChild(itemDiv);
+            });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'cart-total';
+            totalDiv.innerHTML = `Total: $${total.toFixed(2)}`;
+            cartContainer.appendChild(totalDiv);
+
+            const checkoutButton = document.createElement('button');
+            checkoutButton.className = 'checkout-btn';
+            checkoutButton.textContent = 'Proceed to Checkout';
+            checkoutButton.onclick = () => window.location.href = 'checkout.html';
+            cartContainer.appendChild(checkoutButton);
+        }
+
+        function updateQuantity(index, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        renderCart();
+	 </script>
 </body>
 </html>
