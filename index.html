@@ -3,113 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoppo</title>
-<style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    <title>Shoppo - Premium Tech Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f4f4f9;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
         }
 
         header {
-            background-color: #4a90e2;
-            padding: 20px;
-            color: #fff;
-            text-align: center;
-            font-size: 24px;
+            background-color: #232f3e;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-size: 26px;
+            font-weight: 700;
         }
 
         nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
             display: flex;
-            justify-content: space-around;
+            align-items: center;
         }
 
         nav a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            padding: 5px 10px;
-            transition: background-color 0.3s;
+            margin: 0 12px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            background-color: #555;
+            color: #febd69;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            padding: 7px 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            width: 250px;
         }
 
         .hero {
-            background-color: #e2e2e2;
-            padding: 50px 20px;
+            background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
             text-align: center;
+            padding: 80px 20px;
         }
 
         .hero h1 {
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 44px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            color: #666;
-            line-height: 1.6;
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
         }
 
         .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 50px 30px;
         }
 
         .product {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px;
-            width: 200px;
-            text-align: center;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
         }
 
         .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-content h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .product-content p {
+            font-size: 16px;
+            color: #555;
         }
 
         .add-to-cart-btn {
-            background-color: #28a745;
-            color: #fff;
+            background-color: #febd69;
+            color: #111;
             border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            padding: 8px 16px;
             border-radius: 5px;
             margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
 
         .add-to-cart-btn:hover {
-            background-color: #218838;
+            background-color: #f0a843;
         }
 
         footer {
-            background-color: #4a90e2;
-            color: #fff;
+            background-color: #232f3e;
+            color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
+            font-size: 14px;
         }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .search-bar {
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+        }
+ 
++        .testimonial-section {
++            background-color: #fff;
++            padding: 60px 30px;
++            text-align: center;
++        }
++        
++        .testimonial-section h2 {
++            font-size: 32px;
++            margin-bottom: 30px;
++            color: #232f3e;
++        }
++        
++        .testimonials {
++            display: flex;
++            flex-wrap: wrap;
++            justify-content: center;
++            gap: 30px;
++            margin-top: 20px;
++        }
++        
++        .testimonial-card {
++            background-color: #f9f9f9;
++            border-radius: 10px;
++            padding: 25px;
++            max-width: 350px;
++            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
++            transition: transform 0.3s;
++        }
++        
++        .testimonial-card:hover {
++            transform: translateY(-10px);
++        }
++        
++        .testimonial-card img {
++            width: 80px;
++            height: 80px;
++            border-radius: 50%;
++            object-fit: cover;
++            margin-bottom: 15px;
++        }
++        
++        .about-section {
++            padding: 60px 30px;
++            background-color: #f0f2f5;
++            text-align: center;
++        }
++        
++        .about-section h2 {
++            font-size: 32px;
++            margin-bottom: 20px;
++            color: #232f3e;
++        }
++        
++        .about-content {
++            display: flex;
++            flex-wrap: wrap;
++            justify-content: center;
++            gap: 30px;
++            margin-top: 30px;
++        }
++        
++        .about-card {
++            background-color: white;
++            border-radius: 10px;
++            padding: 25px;
++            max-width: 300px;
++            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
++        }
++        
++        .about-card h3 {
++            margin-bottom: 15px;
++            color: #232f3e;
++        }
++        
++        .back-to-top {
++            position: fixed;
++            bottom: 20px;
++            right: 20px;
++            background-color: #febd69;
++            color: #232f3e;
++            width: 50px;
++            height: 50px;
++            border-radius: 50%;
++            display: flex;
++            justify-content: center;
++            align-items: center;
++            cursor: pointer;
++            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
++            opacity: 0;
++            transition: opacity 0.3s;
++        }
++        
++        .back-to-top.visible {
++            opacity: 1;
++        }
++        
++        .dark-mode {
++            background-color: #121212;
++            color: #f0f0f0;
++        }
++        
++        .dark-mode header {
++            background-color: #000;
++        }
++        
++        .dark-mode .product {
++            background-color: #1e1e1e;
++            box-shadow: 0 3px 8px rgba(255,255,255,0.1);
++        }
++        
++        .dark-mode .product-content h3 {
++            color: #f0f0f0;
++        }
++        
++        .dark-mode .product-content p {
++            color: #ccc;
++        }
++        
++        .dark-mode .about-card, 
++        .dark-mode .testimonial-card {
++            background-color: #1e1e1e;
++            color: #f0f0f0;
++        }
++        
++        .dark-mode .about-section h2,
++        .dark-mode .testimonial-section h2,
++        .dark-mode .about-card h3 {
++            color: #f0f0f0;
++        }
++        
++        .dark-mode-toggle {
+            background-color: #232f3e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .dark-mode-toggle:hover {
+            background-color: #394b61;
+        }
+        
+        .rating-display {
+            margin-top: 5px;
+            color: #f0a843;
+            font-weight: bold;
+       }
+     </style>
+ </head>
+ <body>
     </style>
-    
 </head>
 <body>
     <header>
-        Welcome to Our Online Store
+        <h1>Shoppo</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#cart">Cart</a>
+            <a href="#checkout">Checkout</a>
+            <a href="#account">Account</a>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search tech products..." oninput="filterProducts()">
+            </div>
+        </nav>
     </header>
+
+    <section class="hero">
+        <h1>Discover the Future of Tech</h1>
+        <p>Explore a curated collection of premium tech gadgets with top-tier performance and modern design.</p>
+    </section>
+
+    <section class="products" id="product-list">
+        <!-- Products will be rendered here -->
+    </section>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="cart.html">Cart</a>
@@ -125,128 +354,245 @@
         <div class="product">
             <img src="product1.jpg" alt="Product 1">
             <div>Product 1</div>
+            <div>$5</div>
+            <div>books</div>
             <div>$10.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 1', 10.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product2.jpg" alt="Product 2">
             <div>Product 2</div>
+            <div>$10</div>
+            <div>pen</div>
             <div>$15.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 2', 15.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product3.jpg" alt="Product 3">
             <div>Product 3</div>
+            <div>$20</div>
+            <div>pencil</div>
             <div>$20.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 3', 20.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product4.jpg" alt="Product 4">
             <div>Product 4</div>
+            <div>$15</div>
+            <div>pouch</div>
             <div>$25.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 4', 25.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product5.jpg" alt="Product 5">
             <div>Product 5</div>
+            <div>$23</div>
+            <div>calculator</div>
             <div>$30.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 5', 30.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product6.jpg" alt="Product 6">
             <div>Product 6</div>
+            <div>$50</div>
+            <div>writing pad</div>
             <div>$35.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 6', 35.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product7.jpg" alt="Product 7">
             <div>Product 7</div>
+            <div>$5</div>
+            <div>t shirt</div>
             <div>$40.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 7', 40.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product8.jpg" alt="Product 8">
             <div>Product 8</div>
+            <div>$6</div>
+            <div>shoe</div>
             <div>$45.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 8', 45.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product9.jpg" alt="Product 9">
             <div>Product 9</div>
+            <div>$17</div>
+            <div>laptop</div>
             <div>$50.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 9', 50.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product10.jpg" alt="Product 10">
-            <div>Product 10</div>
+            <div>cell phone</div>
             <div>$55.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 10', 55.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product11.jpg" alt="Product 11">
             <div>Product 11</div>
+            <div>$10</div>
+            <div>monitor</div>
             <div>$60.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 11', 60.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product12.jpg" alt="Product 12">
             <div>Product 12</div>
+            <div>$47</div>
+            <div>c.p.u</div>
             <div>$65.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 12', 65.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product13.jpg" alt="Product 13">
-            <div>Product 13</div>
+            <div>mouse</div>
             <div>$70.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 13', 70.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product14.jpg" alt="Product 14">
             <div>Product 14</div>
+            <div>$62.00</div>
+            <div>keyboard</div>
             <div>$75.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 14', 75.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product15.jpg" alt="Product 15">
             <div>Product 15</div>
+            <div>$78</div>
+            <div>joystick</div>
             <div>$80.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 15', 80.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product16.jpg" alt="Product 16">
             <div>Product 16</div>
+            <div>$90</div>
+            <div>motherboard</div>
             <div>$85.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 16', 85.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product17.jpg" alt="Product 17">
             <div>Product 17</div>
+            <div>$69</div>
+            <div>Processor</div>
             <div>$90.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 17', 90.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product18.jpg" alt="Product 18">
             <div>Product 18</div>
+            <div>$93</div>
+            <div>circuits</div>
             <div>$95.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 18', 95.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product19.jpg" alt="Product 19">
             <div>Product 19</div>
+            <div>$25</div>
+            <div>ssd</div>
             <div>$100.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 19', 100.00)">Add to Cart</button>
         </div>
         <div class="product">
             <img src="product20.jpg" alt="Product 20">
-            <div>Product 20</div>
+            <div>u.p.s</div>
             <div>$105.00</div>
             <button class="add-to-cart-btn" onclick="addToCart('Product 20', 105.00)">Add to Cart</button>
         </div>
-    </div>
-    <footer>
-        &copy; 2023 Your Company
+ </div>
+
++    
++    <!-- About Section -->
++    <section class="about-section" id="about">
++        <h2>About Shoppo</h2>
++        <p>We are dedicated to bringing you the best tech products at competitive prices.</p>
++        
++        <div class="about-content">
++            <div class="about-card">
++                <h3>Our Mission</h3>
++                <p>To provide high-quality tech products that enhance your digital lifestyle while ensuring exceptional customer service.</p>
++            </div>
++            <div class="about-card">
++                <h3>Our Vision</h3>
++                <p>To become the leading tech retailer known for innovation, quality, and customer satisfaction.</p>
++            </div>
++            <div class="about-card">
++                <h3>Our Values</h3>
++                <p>Integrity, excellence, innovation, and customer-centricity guide everything we do at Shoppo.</p>
++            </div>
++        </div>
++    </section>
++    
++    <!-- Testimonial Section -->
++    <section class="testimonial-section">
++        <h2>What Our Customers Say</h2>
++        
++        <div class="testimonials">
++            <div class="testimonial-card">
++                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 1">
++                <h3>John D.</h3>
++                <p>"The wireless earbuds I purchased from Shoppo have incredible sound quality. Best purchase I've made this year!"</p>
++            </div>
++            <div class="testimonial-card">
++                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer 2">
++                <h3>Sarah M.</h3>
++                <p>"Fast shipping and excellent customer service. My new smartwatch arrived in perfect condition and works flawlessly."</p>
++            </div>
++            <div class="testimonial-card">
++                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Customer 3">
++                <h3>Michael T.</h3>
++                <p>"Shoppo offers the best prices on premium tech products. I've been a loyal customer for years and highly recommend them."</p>
++            </div>
++        </div>
++    </section>
++    
++    <!-- Back to Top Button -->
++    <div class="back-to-top" id="backToTop">↑</div>
++    
+     
+ <footer>
+        &copy; 2025 Shoppo Inc. All rights reserved.
+
+        &copy; 2025 shopoo
     </footer>
+
     <script>
+        const products = [
+            { name: "Wireless Earbuds", price: 59.99, img: "https://images.unsplash.com/photo-1585386959984-a41552262cdd?auto=format&fit=crop&w=800&q=80" },
+            { name: "Smartwatch Pro X", price: 129.99, img: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80" },
+            { name: "4K Action Camera", price: 199.99, img: "https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=800&q=80" },
+            { name: "Wireless Charger Pad", price: 25.99, img: "https://images.unsplash.com/photo-1580910051074-9b8ac3b6aa30?auto=format&fit=crop&w=800&q=80" },
+            { name: "Bluetooth Speaker", price: 49.99, img: "https://images.unsplash.com/photo-1611078489935-0e1120a30ad7?auto=format&fit=crop&w=800&q=80" },
+            { name: "Noise Cancelling Headphones", price: 189.99, img: "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&w=800&q=80" },
+            { name: "Gaming Mouse", price: 39.99, img: "https://images.unsplash.com/photo-1616627982803-d0b159e42f47?auto=format&fit=crop&w=800&q=80" },
+            { name: "Mechanical Keyboard", price: 89.99, img: "https://images.unsplash.com/photo-1555617982-541c5f2c94df?auto=format&fit=crop&w=800&q=80" }
+        ];
+
+        const container = document.getElementById('product-list');
+
+        function displayProducts(filteredProducts) {
+            container.innerHTML = '';
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product';
+                productCard.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <div class="product-content">
+                        <h3>${product.name}</h3>
+                        <p>$${product.price.toFixed(2)}</p>
+                        <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
         function addToCart(name, price) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existingItem = cart.find(item => item.name === name);
@@ -256,9 +602,112 @@
                 cart.push({ name, price, quantity: 1 });
             }
             localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${name} added to cart`);
+            alert(`${name} added to cart!`);
         }
-    </script>
 
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(product => product.name.toLowerCase().includes(query));
+            displayProducts(filtered);
+        }
+
+        // Display all products initially
+        displayProducts(products);
+
+        // Initialize empty cart if not present
+        if (!localStorage.getItem('cart')) {
+            localStorage.setItem('cart', JSON.stringify([]));
+        }
++
++        // Back to Top Button Functionality
++        const backToTopButton = document.getElementById('backToTop');
++
++        window.addEventListener('scroll', () => {
++            if (window.pageYOffset > 300) {
++                backToTopButton.classList.add('visible');
++            } else {
++                backToTopButton.classList.remove('visible');
++            }
++        });
++
++        backToTopButton.addEventListener('click', () => {
++            window.scrollTo({
++                top: 0,
++                behavior: 'smooth'
++            });
++        });
++
++        // Dark Mode Toggle Functionality
++        function toggleDarkMode() {
++            const body = document.body;
++            body.classList.toggle('dark-mode');
++
++            // Save preference to localStorage
++            const isDarkMode = body.classList.contains('dark-mode');
++            localStorage.setItem('darkMode', isDarkMode);
++
++            // Update button text
++            const darkModeToggle = document.getElementById('darkModeToggle');
++            darkModeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
++        }
++
++        // Product Rating System
++        function rateProduct(productName, rating) {
++            let ratings = JSON.parse(localStorage.getItem('ratings')) || {};
++
++            ratings[productName] = rating;
++            localStorage.setItem('ratings', JSON.stringify(ratings));
++
++            alert(`Thank you for rating ${productName} with ${rating} stars!`);
++
++            // Update UI to show the rating
++            updateProductRatings();
++        }
++
++        function updateProductRatings() {
++            const ratings = JSON.parse(localStorage.getItem('ratings')) || {};
++
++            // Update product cards with ratings
++            document.querySelectorAll('.product').forEach(card => {
++                const productName = card.querySelector('h3')?.textContent;
++                if (productName && ratings[productName]) {
++                    let ratingDisplay = card.querySelector('.rating-display');
++
++                    if (!ratingDisplay) {
++                        ratingDisplay = document.createElement('div');
++                        ratingDisplay.className = 'rating-display';
++                        card.querySelector('.product-content').appendChild(ratingDisplay);
++                    }
++
++                    ratingDisplay.textContent = `Your Rating: ${ratings[productName]} ★`;
++                }
++            });
++        }
++
++        // Recently Viewed Products
++        function trackViewedProduct(productName) {
++            let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
++
++            // Remove if already in the list
++            recentlyViewed = recentlyViewed.filter(name => name !== productName);
++
++            // Add to the beginning of the array
++            recentlyViewed.unshift(productName);
++
++            // Keep only the last 5 viewed products
++            recentlyViewed = recentlyViewed.slice(0, 5);
++
++            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
++        }
++
++        // Initialize ratings display
++        updateProductRatings();
++
++        // Check for dark mode preference
++        if (localStorage.getItem('darkMode') === 'true') {
++            document.body.classList.add('dark-mode');
++        }
+    
+    </script>
 </body>
 </html>

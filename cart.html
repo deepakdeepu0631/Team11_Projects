@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+ <style>
+
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+header, footer {
+            background-color: #4a90e2;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+ nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+ nav a:hover {
+            background-color: #555;
+ }
+  .cart-container {
+            flex: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+  }
+.cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+
+}
+.cart-total {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: right;
+}
+ .checkout-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+.quantity-btn {
+            background-color: #ddd;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+  </style>
+</head>
+<body>
+	 <header>
+        Shopping Cart
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="account.html">Account</a>
+    </nav>
+    <div class="cart-container" id="cart-container">
+        <!-- Cart items will be dynamically inserted here -->
+    </div>
+    <footer>
+        &copy; 2023 Your Company
+    </footer>
+
+	 <script>
+        function renderCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = ''; // Clear existing content
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>
+                        <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                        ${item.quantity}
+                        <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
+                    <div>$${(item.price * item.quantity).toFixed(2)}</div>
+                    <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartContainer.appendChild(itemDiv);
+            });
+
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'cart-total';
+            totalDiv.innerHTML = `Total: $${total.toFixed(2)}`;
+            cartContainer.appendChild(totalDiv);
+
+            const checkoutButton = document.createElement('button');
+            checkoutButton.className = 'checkout-btn';
+            checkoutButton.textContent = 'Proceed to Checkout';
+            checkoutButton.onclick = () => window.location.href = 'checkout.html';
+            cartContainer.appendChild(checkoutButton);
+        }
+
+        function updateQuantity(index, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        renderCart();
+	 </script>
+</body>
+</html>
